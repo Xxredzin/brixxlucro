@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- PWA Primary Meta Tags -->
+    <title>BrixLucro</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BrixLucro">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968260.png">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body class="bg-background text-slate-100 min-h-screen">
+    <div id="root"></div>
+    <script>
+      // Desativa zoom e gestos de pinça
+      document.addEventListener('touchstart', (event) => {
+        if (event.touches.length > 1) {
+          event.preventDefault();
+        }
+      }, { passive: false });
+
+      let lastTouchEnd = 0;
+      document.addEventListener('touchend', (event) => {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+          event.preventDefault();
+        }
+        lastTouchEnd = now;
+      }, false);
+    </script>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>

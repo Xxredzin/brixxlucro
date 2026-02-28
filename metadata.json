@@ -1,0 +1,7 @@
+{
+  "name": "Remix: BrixLucro",
+  "description": "Sistema completo para controle de vendas e lucratividade de produtos com suporte para trocas e indicadores visuais.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
